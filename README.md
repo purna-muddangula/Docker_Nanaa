@@ -77,7 +77,100 @@ Docker generates a random name for container automatically if we don't specify t
 docker logs:view logs from service running inside the conatiner 
 
 
-Port Binding
+Port Binding:Binds thecontainer's port to the host port to make the service available to outside world
+Container runs on specific port
+Docker stop:Stop one or more containers
+
+-p or publish:publish a containersport to the host
+
+docker run -d  -p 9000:80 ngnix:1.23
+
+Docker run 
+
+Creates a new container
+Doesn't re use previous container
+
+docker ps -a or -all(lists all containers stopped and running)
+docket start=start one or
+
+docker run --name web-app  -d -p 9000:80 ngnix :1.23
+
+
+Public and private docker registries
+
+Public:any one can access
+Private:Need to authenticate before accessing the registry 
+all big cloud provider offers private registries 
+Nexus:popular artifact repository manager
+
+Registry vs Repository
+
+Registry:Service providing storage
+collection of repositories
+
+Repository:Collection of related images with same name but diff versions 
+
+Docker Hub:is a registry
+On Docker Hub you can host public or private repositories for apps
+
+Docker File:Create own images 
+
+We want to deploy our app as docker container
+
+We need to create a definition of how to build an image from our app
+
+
+DockerFile-->BUILD Image-->RUN-->Container
+
+Dockerfile is text document that contains commands to assesmble image
+Docker can then build an image by reading instructions 
+
+We will write Dockerfile from Node js app
+
+Structure of Docker file
+
+Dockerfile strat from parent image or base image
+It a docker image that your image is based on
+
+have to choose base image depending up on which tools you need to have available 
+eg:node base, tomcat, python 
+
+
+FROM:
+
+Dockerfile must begin with a FROM instruction
+Build this image from specified image 
+
+
+Evey image consists ofmultiple image layers 
+This makes docker so efficient becauseimage layers can be cached 
+
+RUN
+
+Will execute any command in a shell inside the container env 
+
+Executing NPM install:To install dependencies 
+
+
+STRUCTURE OF DCKERFILE
+
+COPY
+
+Copies files or directories from <src> and adds them to filesystem of the container at the path <dest>
+ While RUN is executed on container and COPY is executed on HOST
+
+
+ WORKDIR:Sets the working dir for all commands 
+
+ CMD:The instruction hat is to be executed when docker container starts
+ There can only be one CMD instruction in Dockerfile
+
+ Docker image consists of layers 
+
+ each instruction in docker file createsone layer
+ these layers are stacked and each one is a delta of chnages from previous layer
+
+
 
 
 
